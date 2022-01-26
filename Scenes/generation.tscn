@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/generation.tres" type="TileSet" id=1]
+[ext_resource path="res://scripts/terrains/Puddles.gd" type="Script" id=2]
+[ext_resource path="res://scripts/CameraController.gd" type="Script" id=3]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+format = 1
+script = ExtResource( 2 )
+width = 2000
+height = 1000
+min_height = 20
+max_height = 30
+gaps = 30
+water_depth = 20
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 512, 320 )
+current = true

@@ -31,5 +31,11 @@ func generate():
 	for x in range(-MaxTilesX, MaxTilesX+1):
 		for tempy in MaxTilesY+1:
 			check_side(x, tempy, 1, INVALID_CELL, 0)
+	
+	
+	# Generating collision blocks
+	for x in range(-MaxTilesX, MaxTilesX+1):
+		for tempy in MaxTilesY+1:
+			check_neighbhor(x, tempy, Blocks.block_index["ground"], Blocks.block_index["air"], Blocks.block_index["collider"])
 		
 	return 1

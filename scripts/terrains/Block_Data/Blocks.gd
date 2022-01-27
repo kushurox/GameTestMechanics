@@ -8,8 +8,6 @@ const block_index = {
 	"collider": 2
 }
 
-const collidables = ["collider"]
-
 var block_name: String
 var group: String
 var can_collide: bool

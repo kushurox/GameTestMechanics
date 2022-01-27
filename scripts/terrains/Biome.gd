@@ -29,6 +29,12 @@ func fill_column(x: int, ch: int, target_height: int=0, tile_index: int=0):
 		ch -= 1
 
 
+func check_neighbhor(x: int, y: int, target_tile: int, old_tile: int, new_tile: int):
+	if self.get_cell(x, y) == target_tile:
+		if self.get_cell(x-1, y) == old_tile or self.get_cell(x+1, y) == old_tile or self.get_cell(x, y+1) == old_tile or self.get_cell(x, y-1) == old_tile:
+			self.set_cell(x, y, new_tile)
+
+
 func check_side(x: int, y: int, target_tile: int, old_tile: int, new_tile: int):
 	if self.get_cell(x, y) == target_tile:
 		if self.get_cell(x-1, y) == old_tile:

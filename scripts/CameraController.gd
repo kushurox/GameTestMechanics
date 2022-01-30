@@ -2,7 +2,7 @@ extends Node
 
 
 onready var camera = get_node("Camera2D")
-var speed = 300
+export var speed = 300
 
 func _ready():
 	set_process(true)

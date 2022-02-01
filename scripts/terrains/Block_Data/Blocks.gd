@@ -5,7 +5,6 @@ const block_index = {
 	"air": -1,
 	"ground": 0,
 	"water": 1,
-	"collider": 2
 }
 
 var block_name: String

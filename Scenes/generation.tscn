@@ -1,24 +1,32 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/generation.tres" type="TileSet" id=1]
 [ext_resource path="res://scripts/terrains/Puddles.gd" type="Script" id=2]
-[ext_resource path="res://scripts/CameraController.gd" type="Script" id=3]
-[ext_resource path="res://assets/background.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/player.tscn" type="PackedScene" id=4]
 
 [node name="Node2D" type="Node2D"]
-script = ExtResource( 3 )
-speed = 500
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="NonCollidable" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+
+[node name="Collidable" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+collision_mask = 0
 format = 1
 script = ExtResource( 2 )
-width = 2000
-height = 2000
+min_height = 10
+max_height = 20
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 512, 320 )
+[node name="player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 270, -12 )
+speed = 400
+
+[node name="Camera2D" type="Camera2D" parent="player"]
 current = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
@@ -27,5 +35,4 @@ current = true
 motion_mirroring = Vector2( 1024, 1024 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-texture = ExtResource( 4 )
 centered = false
